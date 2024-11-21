@@ -1,0 +1,62 @@
+
+<form id="form-registro">
+    <div class="mb-3">
+        <label for="nombre" class="form-label">Nombre Completo</label>
+        <input type="text" class="form-control" id="nombre" required placeholder="Ingresa tu nombre completo">
+    </div>
+    <div class="mb-3">
+        <label for="email" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="email" required placeholder="Ingresa tu correo electrónico">
+    </div>
+    <div class="mb-3">
+        <label for="contraseña" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="contraseña" required placeholder="Ingresa tu contraseña">
+    </div>
+    <div class="mb-3">
+        <label for="confirmar-contraseña" class="form-label">Confirmar Contraseña</label>
+        <input type="password" class="form-control" id="confirmar-contraseña" required placeholder="Confirma tu contraseña">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="aceptar-terminos">
+        <label class="form-check-label" for="aceptar-terminos">Acepto los términos y condiciones</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+</form>
+
+<script>
+    // Validación del formulario de registro
+    document.getElementById('form-registro').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevenir el envío del formulario por defecto
+        
+        // Obtener valores de los campos
+        const nombre = document.getElementById('nombre').value;
+        const email = document.getElementById('email').value;
+        const contraseña = document.getElementById('contraseña').value;
+        const confirmarContraseña = document.getElementById('confirmar-contraseña').value;
+        const aceptarTerminos = document.getElementById('aceptar-terminos').checked;
+
+        // Validación de campos vacíos
+        if (!nombre || !email || !contraseña || !confirmarContraseña) {
+            alert('Por favor, complete todos los campos.');
+            return;
+        }
+
+        // Validación de contraseñas coincidentes
+        if (contraseña !== confirmarContraseña) {
+            alert('Las contraseñas no coinciden.');
+            return;
+        }
+
+        // Validación de aceptación de términos
+        if (!aceptarTerminos) {
+            alert('Debe aceptar los términos y condiciones.');
+            return;
+        }
+
+        // Si todo está bien, mostrar mensaje de éxito (o enviar datos al servidor)
+        alert('¡Registro exitoso!');
+        
+        // Aquí podrías agregar la lógica para enviar los datos al servidor
+    });
+</script>
+

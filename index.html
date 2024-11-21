@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> tienda de Perritos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+      <style>
+        .floating-cart-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Perritos</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="./index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"></a>
+                    </li>
+                    <li class="nav-item">
+                      <a class="nav-link" href="#"></a>
+                  </li>
+
+
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><hr class="dropdown-divider"></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link disabled" aria-disabled="true"></a>
+                    </li>
+                </ul>
+                <!-- Modal de inicio de sesión -->
+                <div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="loginModalLabel">Iniciar Sesión</h5>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body">
+                                <!-- Formulario de inicio de sesión -->
+                                <form id="form-login">
+                                    <div class="mb-3">
+                                        <label for="login-email" class="form-label">Correo Electrónico</label>
+                                        <input type="email" class="form-control" id="login-email" required placeholder="Ingresa tu correo electrónico">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="login-contraseña" class="form-label">Contraseña</label>
+                                        <input type="password" class="form-control" id="login-contraseña" required placeholder="Ingresa tu contraseña">
+                                    </div>
+                                    <div class="mb-3 form-check">
+                                        <input type="checkbox" class="form-check-input" id="remember-me">
+                                        <label class="form-check-label" for="remember-me">Recuérdame</label>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Botón que abre el modal -->
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#loginModal">
+                    Iniciar sesión
+                </button>
+                
+                <script>
+                    // Validación del formulario de inicio de sesión
+                    document.getElementById('form-login').addEventListener('submit', function(event) {
+                        event.preventDefault(); // Prevenir el envío del formulario por defecto
+                
+                        // Obtener los valores de los campos
+                        const email = document.getElementById('login-email').value;
+                        const contraseña = document.getElementById('login-contraseña').value;
+                        const recordar = document.getElementById('remember-me').checked;
+                
+                        // Validación de campos vacíos
+                        if (!email || !contraseña) {
+                            alert('Por favor, ingresa tu correo electrónico y contraseña.');
+                            return;
+                        }
+                
+                        // Aquí puedes agregar más validaciones si lo deseas (por ejemplo, formato del correo)
+                        
+                        // Mostrar mensaje de éxito (o enviar datos al servidor)
+                        alert('¡Inicio de sesión exitoso!');
+                        
+                        // Aquí podrías agregar la lógica para enviar los datos al servidor o redirigir a otra página
+                    });
+                </script>
+                
+                <!-- Scripts de Bootstrap -->
+                <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+                
+
+                <!-- Botón que abre el modal -->
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#registroModal">
+                    Registrarse
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Modal de registro -->
+    <div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="registroModalLabel">Registro</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" id="modalBodyContent">
+                    <!-- El contenido se cargará aquí -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript para cargar el archivo -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            document.getElementById('registroModal').addEventListener('show.bs.modal', function () {
+                // Mostrar el modal de registro de forma asíncrona
+                fetch('registro.html') // Asegúrate de que el archivo existe y contiene solo el formulario de registro
+                    .then(response => response.text())
+                    .then(data => {
+                        document.getElementById('modalBodyContent').innerHTML = data;
+                    })
+                    .catch(error => console.error('Error al cargar el archivo:', error));
+            });
+        });
+    </script>
+
+    <div class="container my-5">
+        <div class="row" id="productos-container">
+            <!-- Aquí los productos se agregarán dinámicamente con JS -->
+        </div>
+
+        <button type="button" class="btn btn-primary floating-cart-btn" data-bs-toggle="modal" data-bs-target="#carritoModal">
+            🛒
+        </button>
+
+        <!-- Modal del carrito -->
+        <div class="modal fade" id="carritoModal" tabindex="-1" aria-labelledby="carritoModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="carritoModalLabel">Carrito de Compras</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="carrito-container">
+                            <!-- El carrito se llenará dinámicamente -->
+                        </div>
+                        <p id="carrito-total">Total: $0</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button type="button" class="btn btn-success" onclick="finalizarCompra()">Finalizar Compra</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de finalización -->
+        <div class="modal fade" id="finalizacionModal" tabindex="-1" aria-labelledby="finalizacionModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="finalizacionModalLabel">Finalizar Compra</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="form-finalizacion" onsubmit="return validarFormulario(event)">
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">Nombre Completo</label>
+                                <input type="text" class="form-control" id="nombre" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Correo Electrónico</label>
+                                <input type="email" class="form-control" id="email" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="direccion" class="form-label">Dirección de Envío</label>
+                                <input type="text" class="form-control" id="direccion" required>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Completar Pedido</button>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts de Bootstrap y archivo de JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="producto.js"></script>
+
+    <!-- JavaScript para validar el formulario de finalización -->
+    <script>
+        function validarFormulario(event) {
+            event.preventDefault();  // Prevenir el envío del formulario por defecto
+            let nombre = document.getElementById('nombre').value;
+            let email = document.getElementById('email').value;
+            let direccion = document.getElementById('direccion').value;
+
+            if (nombre && email && direccion) {
+                alert('Pedido completado con éxito');
+                // Aquí puedes agregar lógica para procesar el pedido
+            } else {
+                alert('Por favor, complete todos los campos.');
+            }
+        }
+    </script>
+</body>
+
+</html>

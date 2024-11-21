@@ -1,0 +1,41 @@
+
+<form id="form-login">
+    <div class="mb-3">
+        <label for="login-email" class="form-label">Correo Electrónico</label>
+        <input type="email" class="form-control" id="login-email" required placeholder="Ingresa tu correo electrónico">
+    </div>
+    <div class="mb-3">
+        <label for="login-contraseña" class="form-label">Contraseña</label>
+        <input type="password" class="form-control" id="login-contraseña" required placeholder="Ingresa tu contraseña">
+    </div>
+    <div class="mb-3 form-check">
+        <input type="checkbox" class="form-check-input" id="remember-me">
+        <label class="form-check-label" for="remember-me">Recuérdame</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Iniciar sesión</button>
+</form>
+
+<script>
+    // Validación del formulario de inicio de sesión
+    document.getElementById('form-login').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevenir el envío del formulario por defecto
+
+        // Obtener los valores de los campos
+        const email = document.getElementById('login-email').value;
+        const contraseña = document.getElementById('login-contraseña').value;
+        const recordar = document.getElementById('remember-me').checked;
+
+        // Validación de campos vacíos
+        if (!email || !contraseña) {
+            alert('Por favor, ingresa tu correo electrónico y contraseña.');
+            return;
+        }
+
+        // Aquí puedes agregar más validaciones si lo deseas (por ejemplo, formato del correo)
+        
+        // Mostrar mensaje de éxito (o enviar datos al servidor)
+        alert('¡Inicio de sesión exitoso!');
+        
+        // Aquí podrías agregar la lógica para enviar los datos al servidor o redirigir a otra página
+    });
+</script>
